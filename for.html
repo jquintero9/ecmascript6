@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="people">
+        <p>Wes</p>
+        <p>Krait</p>
+        <p>Snickers</p>
+    </div>
+
+    <script>
+
+        const cuts = ['Chuck', 'Brisket', 'Shank', 'Shor Rib'];
+
+        // Regular For.
+        for (let i = 0; i < cuts.length; i++) {
+            console.log(cuts[i]);
+        }
+
+        // For in.
+        for (const index in cuts) {
+            console.log(cuts[index]);
+        }
+
+        console.log('for in');
+
+        for (const cut of cuts) {
+            console.log(cut);
+        }
+
+        // Array.from
+        const people = document.querySelectorAll('.people p');
+        const peopleArray = Array.from(people, person => {
+            console.log(person);
+            return person.textContent;
+        });
+
+        function sumAll() {
+            const nums = Array.from(arguments);
+            return nums.reduce((prev, next) => prev + next, 0);
+        }
+
+        console.log(sumAll(1, 3, 4, 5, 6));
+
+        console.log(peopleArray);
+
+        // Object Iterable
+        const apple = {
+            color: 'Red',
+            size: 'Medium',
+            weight: 60,
+            sugar: 10
+        }
+
+        for (const prop in apple) {
+            console.log(prop, apple[prop]);
+        }
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    // Destructuring Objects.
+        const jhon = {
+            first: 'Jhon Jaime',
+            last: 'Quintero Correa',
+            links: {
+                social: {
+                    twitter: 'https://twiter.com/jquintero9',
+                    facebook: 'https://facebook.com/jquintero9'
+                },
+                web: {
+                    blog: 'https://jhon.com'
+                }
+            }
+        };
+
+        const phone = '3104550353';
+        const age = 25;
+
+        const personalInfo = { phone, age };
+
+        const { twitter, facebook } = jhon.links.social;
+        const { first:firstName, last:lastName } = jhon;
+
+        console.log(twitter, facebook);
+        console.log('FirstName', firstName);
+        console.log('LastName', lastName);
+
+        console.table(personalInfo);
+
+        // Destructuring Arrays
+        const details = ['Jhon Quintero', 123, 'jquintero9.com'];
+
+        const [name, id, website] = details;
+
+        const socials = [twitter, facebook, firstName];
+
+        console.log('socials', socials);
+
+        console.log(name, id, website);
+
+        const data = 'Soccer,Sports,83838,12';
+
+        const [itemName, category, sku, inventory] = data.split(',');
+
+        console.log(itemName, category, sku, inventory);
+
+        // Destructuring Functions
+
+        function convertCurrency(amount = 0) {
+            const converted = {
+                USD: amount * 0.76,
+                GPB: amount * 0.55,
+                AUD: amount * 1.01,
+                MEX: amount * 13.30
+            };
+            return converted;
+        }
+
+        const { USD, GPB, AUD, MEX } = convertCurrency(100);
+
+        console.log(USD, GPB, AUD, MEX);
+
+    </script>
+
+</body>
+</html>

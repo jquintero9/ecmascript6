@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function setWidth() {
+            // Var solo respeta el scope de las variables en las funciones.
+            var width = 100;
+            console.log(width);
+        }
+
+        setWidth();
+
+        var age = 100;
+
+        /**
+         * Las variables definidas en las estructuras de control como los if's y los while, for.
+         * No respetan el scope, es decir que puden ser utilizadas en cualquier parte del código.
+         */
+
+        /**
+         * Para solucionar esto es mejor definir las variables con let.
+         */
+
+        if (age > 12) {
+            let dogYears = age * 7;
+            console.log(`You are ${ dogYears } dog years old.`);
+        }
+    </script>
+</body>
+</html>

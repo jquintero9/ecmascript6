@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="people">
+        <p>Wes</p>
+        <p>Kait</p>
+        <p>Randy</p>
+    </div>
+    <script>
+
+        const featured = ['Deep Dish', 'Peperoni', 'Hawaiian'];
+        const specialty = ['Meatzza', 'Spicy Mama', 'Margherita'];
+
+        // let pizzas = [];
+        // pizzas = pizzas.concat(featured);
+        // pizzas.push('veg');
+        // pizzas = pizzas.concat(specialty);
+
+        // Spread Operator
+        let pizzas = [...featured, 'veg', ...specialty];
+
+        console.log(pizzas);
+
+        // More examples of Spread...
+        const people = [...document.querySelectorAll('.people p')];
+        const names = people.map(person => person.textContent);
+
+
+        const deepDish = {
+            pizzaName: 'Deep Dish',
+            size: 'Medium',
+            ingredients: ['Marinara', 'Italian Sauage', 'Dough', 'Cheese']
+        }
+
+        const shoppingList = ['Milk', 'Flour', ...deepDish.ingredients];
+
+        function add(...operators) {
+            return operators.reduce((prev, next) => prev + next, 0);
+        }
+
+        console.log(add(1, 2, 3, 4, 5, 6, -1, -1, 9, 12, 31, -3));
+
+        const comments = [
+            { id: 299292, text: 'I love your dog!' },
+            { id: 254292, text: 'Cute!' },
+            { id: 199293, text: 'You are so dumb' },
+            { id: 289592, text: 'Nice work on this wes!' },
+        ];
+        console.log('comments', comments);
+        const id = 199293;
+        const commentIndex = comments.findIndex(comment => comment.id === id);
+        console.log('comment index', commentIndex);
+
+        const newComments = [
+            ...comments.slice(0, commentIndex),
+            ...comments.slice(commentIndex + 1)
+        ];
+
+        console.log( { ...deepDish } );
+
+        console.log('new messages', newComments);
+
+        // Spread with functions
+        const str = ['Jhon Jaime', 'Quintero Correa'];
+
+        function sayHi(first = '', second = '') {
+            alert(`Hi there ${first} ${second}`);
+        }
+
+        sayHi(...str);
+
+    </script>
+
+</body>
+</html>

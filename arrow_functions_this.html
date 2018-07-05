@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box_container {
+            position: relative;
+            width: 580px;
+            height: 480px;
+            background-color: #555;
+            color: #fff;
+        }
+
+        .box_container .box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 115px;
+            height: 115px;
+            background-color: #ddd;
+            border: 1px solid #888;
+            transition: all .5s ease-out;
+        }
+
+        .box_container .box.expand {
+            width: 168px;
+            height: 168px
+        }
+
+        .box_container .box.color {
+            transform: rotate(45deg);
+            background-color: #111;
+        }
+    </style>
+</head>
+<body>
+    <section class="box_container">
+        <div class="box"></div>
+    </section>
+
+    <script>
+
+        const box = document.querySelector('.box');
+
+        function onClick(ev) {
+            let first = 'expand';
+            let second = 'color';
+
+            if (this.classList.contains(first)) {
+                [first, second] = [second, first];
+            }
+
+            this.classList.toggle(first);
+
+            setTimeout(() => {
+                this.classList.toggle(second);
+            }, 800);
+        }
+
+        box.addEventListener('click', onClick);
+
+    </script>
+</body>
+</html>

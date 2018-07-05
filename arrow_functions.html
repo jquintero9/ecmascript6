@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        const names = ['west', 'kait', 'lux'];
+        const colors = ['black', 'white', 'yellow', 'blue'];
+
+
+        // Función convencional de javascript
+        const fullNames = names.map(function(name) {
+            return `${name} bos`;
+        });
+
+        // Arrow Function de un solo parametro y un return explícito.
+        const colorsName = colors.map(color => `This is a ${ color } color.`);
+
+        // Arrow Function con dos parametros y un bloque de código.
+        colors.forEach((color, index) => {
+            let alpha = (index + 1) / 100;
+
+            console.log(`The alpha of ${ color } is [${ alpha }]`);
+        });
+
+        // Arrow Function para una función anonima (No tiene un nombre
+        const sayMyName = name => console.log(`Hi ${name}!`);
+        sayMyName('Jaime');
+
+        const ages = [12, 83, 24, 22, 11, 8, 91, 10, 53, 32];
+        const old = ages.filter(age => age <= 18);
+        console.log(old);
+
+        console.log('fullNames', fullNames);
+        console.log('colorsName', colorsName);
+    </script>
+</body>
+</html>

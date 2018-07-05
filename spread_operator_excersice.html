@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Spread Operator Exersice</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 32px;
+            background-color: #333;
+            color: #f9f9f9;
+            text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .jump {
+            letter-spacing: 4px;
+        }
+
+        .jump span {
+            display: inline-block;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .jump span:hover {
+            transform: translateY(-20px) rotate(10deg) scale(2);
+        }
+    </style>
+
+</head>
+<body>
+    <h1 class="jump">SPREAD!!</h1>
+
+    <script>
+
+        const heading = document.querySelector('.jump');
+        const spans = getSpans(heading.textContent);
+        heading.innerHTML = spans;
+        console.log(spans);
+
+        function getSpans(word = '') {
+            return [...word]
+                .map(letter => `<span>${ letter }</span>`)
+                .join('');
+        }
+
+
+    </script>
+
+</body>
+</html>
